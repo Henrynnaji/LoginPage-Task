@@ -14,15 +14,35 @@ body {
 }
 
 .parent{
-    height: 100vh;
+    height: 700px;
 }
+
 .insideParent{
-    height: 80vh;
+    height: 600px;
     width: 100%;
 }
 
 .right-side {
     padding: 40px;
+}
+
+.scl-btn {
+    border-radius: 50px;
+    background-color: #ECE9E9;
+    font-size: 15px;
+}
+
+.scl-btn a {
+    text-decoration: none;
+    color: #000;
+}
+
+.scl-btn a:hover {
+    color: #E67E22;
+}
+
+.fb-txt {
+    padding-left: 0;
 }
 
 .input-field {
@@ -52,4 +72,42 @@ body {
 .sign-up a {
     text-decoration: none;
     color: #E67E22;
+}
+
+/*------------------------------------------------------------------
+
+            Fancy Line for dividing the social login
+                    and the register for
+
+-------------------------------------------------------------------*/
+
+.fancy {
+    line-height: 0.5;
+    text-align: center;
+    font-size: 25px;
+}
+
+.fancy span {
+  display: inline-block;
+  position: relative;  
+}
+
+.fancy span:before,
+.fancy span:after {
+  content: "";
+  position: absolute;
+  height: 1px;
+  border-top: 1px solid black;
+  top: 5px;
+  width: 50px;
+}
+
+.fancy span:before {
+  right: 100%;
+  margin-right: 15px;
+}
+
+.fancy span:after {
+  left: 100%;
+  margin-left: 15px;
 }
