@@ -1,0 +1,152 @@
+html,
+body {
+    background-color: #fff;
+    color: #555555;
+    font-family: 'Century Gothic', 'Arial', sans-serif;
+    text-rendering: optimizeLegibility;
+}
+
+.form-img {
+    background-image: -webkit-gradient(linear, left top, left bottom, from(rgba(0, 0, 0, 0.14)), to(rgba(0, 0, 0, 0.36))), url(https://res.cloudinary.com/anikriz/image/upload/v1568650685/HNG%20%7CStartng%20Internship/Optimized-bg-img_pxjje8.jpg);
+    background-image: linear-gradient(rgba(0, 0, 0, 0.14), rgba(0, 0, 0, 0.36)), url(https://res.cloudinary.com/anikriz/image/upload/v1568650685/HNG%20%7CStartng%20Internship/Optimized-bg-img_pxjje8.jpg);
+    background-size: cover;
+    background-position: center;
+}
+
+.parent{
+    height: 700px;
+}
+
+.insideParent{
+    height: 600px;
+    width: 100%;
+}
+
+.right-side {
+    padding: 40px;
+}
+
+.input-field {
+    height: 50px;
+}
+
+.submit-button {
+    border-radius: 50px;
+    border: 1px solid #000;
+}
+
+.submit-button:hover {
+    background-color: #E67E22;
+    color: #fff;
+}
+
+.reset-pwd a {
+    text-decoration: none;
+    color: #000;
+}
+
+.reset-pwd a:hover {
+    text-decoration: none;
+    color: #E67E22;
+}
+
+.sign-up a {
+    text-decoration: none;
+    color: #E67E22;
+}
+
+
+footer{
+    text-justify: right;
+    color:white;
+    
+}
+
+.landing{
+    line-height: 70px;
+    font-family: Arial, Helvetica, sans-serif;
+    color: #ffffff;
+}
+
+.homebg{
+    background: #17a2b8;
+    height: 100vh;
+    padding-top: 157px;
+}
+
+
+a.buttonhome {
+    display: inline-flexbox;
+    position: relative;
+    border-radius: 5px;
+    border: 2px solid #ffffff;
+    background-color: transparent;
+    float: left;
+    width: 120px;
+    padding: 0;
+    margin: 10px 20px 10px 0;
+    font-weight: 600;
+    text-align: center;
+    line-height: 35px;
+    color: #ffffff;
+    text-decoration: none;
+  }
+  .buttonhome:hover,
+  .buttonhome:active {
+    background-color: #ffffff;
+    color: #17a2b8;
+    
+  }
+
+  a.signupbtn {
+    display: inline-flexbox;
+    display: block;
+    position: relative;
+    border-radius: 5px;
+    border: 2px solid #ffffff;
+    float: left;
+    width: 120px;
+    padding: 0;
+    margin: 10px 20px 10px 0;
+    font-weight: 600;
+    text-align: center;
+    line-height: 35px;
+    background-color: #ffffff;
+    color: #17a2b8;
+    text-decoration: none;
+  }
+
+/*=================================================================
+
+                        Dashboard Page
+
+==================================================================*/
+
+#db-home {
+    height: 100%;
+    color: #fff;
+}
+
+#db-home-cover {
+    height: 100%;
+    background-image: linear-gradient(rgba(0, 0, 0, 0.44), rgba(0, 0, 0, 0.66)), url(https://res.cloudinary.com/anikriz/image/upload/v1568825274/HNG%20%7CStartng%20Internship/Optimized-db-bg_ezpdgs.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+}
+
+#db-home-content-box {
+    width: 100%;
+    height: 100%;
+    display: table;
+}
+
+#db-home-content-box-inner {
+    display: table-cell;
+    vertical-align: middle;
+}
+
+.typer {
+    color: #fff;
+}
+
