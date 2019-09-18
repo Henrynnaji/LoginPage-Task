@@ -69,7 +69,7 @@ footer{
 }
 
 .homebg{
-    background: #424485;
+    background: #17a2b8;
     height: 100vh;
     padding-top: 157px;
 }
@@ -94,7 +94,7 @@ a.buttonhome {
   .buttonhome:hover,
   .buttonhome:active {
     background-color: #ffffff;
-    color: #424485;
+    color: #17a2b8;
     
   }
 
@@ -112,6 +112,6 @@ a.buttonhome {
     text-align: center;
     line-height: 35px;
     background-color: #ffffff;
-    color: #424485;
+    color: #17a2b8;
     text-decoration: none;
   }
