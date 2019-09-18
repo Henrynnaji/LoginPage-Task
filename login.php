@@ -1,3 +1,32 @@
+<?php
+$name_error ='';
+$email_error ='';
+
+$output = '';
+
+if(isset($_POST["submit"])){
+    if(empty($_POST["name"])){
+        $name_error ='<p> Please enter your name </p>';
+    }else{
+        if (!preg_match("/^[a-zA-Z ]*$/",$_POST["name"])) {
+            $name_error ='<p> Only letter whitespace are not allowed</p>';
+        }
+    }
+    if (!filter_var($_POST["email"], FILTER_VALIDATE_EMAIL)) {
+        $email_error ='<p> Invalid Email </p>';
+    }
+    
+    if($name_error =="" && $email_error == ""){
+      $output ='  
+       <p> <label> Output </label></p>
+      <p> Your name is '.$_POST["name"].'</p>
+      <p> Your email is '.$_POST["email"].'</p>
+
+      ';
+    }
+}
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -48,14 +77,39 @@
                 <h4>Welcome Back, Please Login
                     <br> To Your Account
                 </h4>
+             <form action = "" method ="post">
+                <label for="name"><b>Username</b></label>
+                <input type="text" placeholder="Enter Username" name="name" required/>
+                <span class="text-danger"> <?php echo $name_error; ?> </span>
 
+                <label for="email"><b>Email</b></label>
+                <input type="email" placeholder="Enter Email" name="email" required/>
+                <span class="text-danger"> <?php echo $email_error; ?> </span>
+                <br/>  <br/>
+
+
+
+                <label for="pass"><b>Password</b></label>
+                <input type="password" placeholder="Enter Password" name="pass" required/>
+                <br/> <br/>
+
+
+    
+                <button type="submit" name="submit">Login</button><br/>
+                <label>
+                  <input type="checkbox" checked="checked" name="remember"> Remember me
+                </label>
+                <div> <?php echo $output; ?></div>
+
+
+</form>
             </div>
         </div>
       </div>
 
     </div>
 
-
+   
 
 
 
