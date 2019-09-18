@@ -1,6 +1,7 @@
 html,
 body {
     background-color: #fff;
+    height: 100%;
     color: #555555;
     font-family: 'Century Gothic', 'Arial', sans-serif;
     text-rendering: optimizeLegibility;
