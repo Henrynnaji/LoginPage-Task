@@ -115,3 +115,38 @@ a.buttonhome {
     color: #17a2b8;
     text-decoration: none;
   }
+
+/*=================================================================
+
+                        Dashboard Page
+
+==================================================================*/
+
+#db-home {
+    height: 100%;
+    color: #fff;
+}
+
+#db-home-cover {
+    height: 100%;
+    background-image: linear-gradient(rgba(0, 0, 0, 0.44), rgba(0, 0, 0, 0.66)), url(https://res.cloudinary.com/anikriz/image/upload/v1568825274/HNG%20%7CStartng%20Internship/Optimized-db-bg_ezpdgs.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+}
+
+#db-home-content-box {
+    width: 100%;
+    height: 100%;
+    display: table;
+}
+
+#db-home-content-box-inner {
+    display: table-cell;
+    vertical-align: middle;
+}
+
+.typer {
+    color: #fff;
+}
+
