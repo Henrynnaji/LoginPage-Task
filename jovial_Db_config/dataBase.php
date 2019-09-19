@@ -1,6 +1,6 @@
 <?php
 
-class database {
+class Database {
     private $servername;
     private $username;
     private $password;
@@ -10,22 +10,21 @@ class database {
     protected function Dbconnect() {
         $this->servername = "localhost";
         $this->username = "root";
-        $this->password = "";
+        $this->password = "oparaprosper081";
         $this->dbname= "users";
         $this->charset = "utf8mb4"; 
 
 
-    try {
-        $dsn ="mysql:host=".$this->servername. ";dbname=". $this->dbname. ";charset".$this->charset;
+        try {
+            $dsn ="mysql:host=".$this->servername. ";dbname=". $this->dbname. ";charset".$this->charset;
 
-        $pdo = new PDO ($dsn, $this->username, $this->password);
+            $pdo = new PDO ($dsn, $this->username, $this->password);
 
-        $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+            $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
-        return $pdo;
-    }
- catch (PDOException $e) {
-    echo "Somthing actually went wrong".$e->getMessage();
+            return $pdo;
+        } catch (PDOException $e) {
+        echo "Somthing actually went wrong".$e->getMessage();
         }
     } 
 }
