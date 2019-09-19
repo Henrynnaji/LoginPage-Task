@@ -1,3 +1,27 @@
+<?php
+
+if($_SERVER['REQUEST_METHOD'] == "POST" && isset($_POST['submit'])){
+  require 'registration_auth.php';
+   
+  $first_name   = $_POST["f-name"];
+  $last_name    = $_POST["l-name"];
+  $email        = $_POST["email"];
+  $password     = $_POST["password"];
+  
+//   $sql = "INSERT INTO client (`client_First_Name`, `client_Last_Name`, `client_Email`, `password`) VALUES ('$first_name', '$last_name', '$email', '$password')";
+
+//   $conn_db = $conn->prepare($sql);
+//   $exe = $conn_db->execute();
+// 
+    // if($exe){
+    //   header("Location: dashboard.html");
+    // }
+    $register = new Registration($first_name, $last_name, $email, $password);
+    $register-> store_details();
+
+}
+?>
+
 <!DOCTYPE html>
 <html lang="en">
     
@@ -56,12 +80,14 @@
                         <h4>New Here...
                             <br> Sign Up Now
                         </h4>
-                        
-                        <form action="/action_page.php">
+                
+                        <form action="<?php echo $_SERVER['PHP_SELF']?>" method="POST">
                             <div class="row mt-5">
+                                
                                 <div class="col">
                                     <input type="text" class="form-control input-field" name="f-name" placeholder="First name" required>
                                 </div>
+                               
                                 <div class="col">
                                     <input type="text" class="form-control input-field" name="l-name" placeholder="Last name" required>
                                 </div>
@@ -74,10 +100,10 @@
                                 <input type="checkbox" onclick="myPassword()">Show Password
                             </div>
                             
-                            <button type="submit" class="mt-4 col-12 btn btn-default btn-lg submit-button">Register</button>
+                            <button type="submit" name="submit" class="mt-4 col-12 btn btn-default btn-lg submit-button">Register</button>
                         </form>
                         <div class="d-flex justify-content-center sign-up mt-4">
-                            <p>Already have an account? <a href="login.html">Login</a></p>
+                            <p>Already have an account? <a href="login.php">Login</a></p>
                         </div>
 
                     </div>

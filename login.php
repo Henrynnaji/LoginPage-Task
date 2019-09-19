@@ -1,91 +1,108 @@
 <?php
-    include ('jovial_Db_config/dataBase.php');
-    include ('authent.php');
+  include ('jovial_Db_config/dataBase.php');
+  include ('login_authentication.php');
 ?>
 
 <!DOCTYPE html>
 <html lang="en">
-    
     <head>
-        
         <!-- required meta tags -->
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE-edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         
         <title>The A-Team Login Page</title>
-        
-        <!-- fontawesome -->
+        <!-- fontawesome! -->
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-        
-        <!-- bootstrap CSS -->
+        <!-- bootstrap CSS !-->
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-        
-        <!-- style.css -->
+        <!-- style.css -->     
         <link rel="stylesheet" href="css/style.css">
     </head>
     
     <body>
+      <nav class="navbar navbar-expand-lg navbar-dark bg-info">
+        <a class="navbar-brand order-1"  href="#">The A-Team</a>
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav">
+              <li class="nav-item active">
+                <a class="nav-link" href="index.html" ><i class="fa fa-home"></i> Home <span class="sr-only"></span></a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#"> <i class="fa fa-address-book"></i> Contact Us</a>
+              </li>
+              <li class="nav-item">
+                 <a class="nav-link" href="#"> <i class="fa fa-database"></i> About</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#" tabindex="-1" ><i class="fa fa-desktop"></i> Our Team</a>
+              </li>
+            </ul>
+         </div>
+      </nav>   
         
-        <div class="container">
-            
-            <div class="d-flex justify-content-center align-items-center parent">
-                <div class="row insideParent">
-                    <div class=" h-100 d-none d-md-block col-md-6 px-0 form-img">
+      <div class="container">    
+        <div class="d-flex justify-content-center align-items-center parent">
+            <div class="row insideParent">
+                <div class=" h-100 d-none d-md-block col-md-6 px-0 form-img"></div>
+                <div class="h-100 col-md-6 right-side">
+                  <h4>Welcome Back, Please Login
+                    <br> To Your Account
+                  </h4>
+                    
+                  <?php
+                    $onSubmit = isset($_POST['submit']);
+                    if($onSubmit) {
+                        $indexAuth = new UserAuthent;
+                        $indexAuth->userVal($_POST['email'], $_POST['pass']);
+                    }
+                  ?>
+                  <form action="<?php echo $_SERVER['PHP_SELF'] ?>" Method="POST">
+                      <div class="form-group mt-5">
+                      <?php
+                          if (isset($indexAuth->msg)){?>
+                      <p style="color:red"><?php echo "*".$indexAuth->msg;  ?> </p>    
+                     <?php  }?>
+                      
+                          <input type="email" class="form-control input-field" id="email" name="email" placeholder="Enter Email Address" required>
+                      </div>
+                      <div class="form-group mt-4">
+                          <input type="password" class="form-control input-field" id="pwd" name="pass" placeholder="Enter Password" required>
+                      </div>
+                      <div class="container mt-4">
+                          <div class="row d-flex justify-content-between">
+                              <div class="form-check">
+                                  <label class="form-check-label">
+                                    <input class="form-check-input" type="checkbox"> Remember me
+                                  </label>
+                              </div>
+                              <div class="reset-pwd">
+                                  <a href="#">Forgot Password ?</a>
+                              </div>
+                          </div>
+                      </div>
+                      
+                      <button type="submit" class="mt-4 col-12 btn btn-default btn-lg submit-button" name="submit">Login</button>
+                  </form>
+                    <div class="d-flex justify-content-center sign-up mt-4">
+                        <p>Don't have an account? <a href="register.php">Sign Up</a></p>
                     </div>
-                    <div class="h-100 col-md-6 right-side">
-                        <h4>Welcome Back, Please Login
-                            <br> To Your Account
-                        </h4>
-                        
-                <?php
-            $onSubmit = isset($_POST['submit']);
 
-            if($onSubmit) {
-                $indexAuth = new userAuthent;
-                $indexAuth->userVal($_POST['email'], $_POST['pass']);
-            }
-                ?>
-
-
-
-                        <form action="#" Method="POST">
-                            <div class="form-group mt-5">
-
-                            <?php
-                                if (isset($indexAuth->msg)){?>
-                            <p style="color:red"><?php echo "*".$indexAuth->msg;  ?> </p>    
-                           <?php  }?>
-                            
-                                <input type="email" class="form-control input-field" id="email" name="email" placeholder="Enter Email Address" required>
-                            </div>
-                            <div class="form-group mt-4">
-                                <input type="password" class="form-control input-field" id="pwd" name="pass" placeholder="Enter Password" required>
-                            </div>
-                            <div class="container mt-4">
-                                <div class="row d-flex justify-content-between">
-                                    <div class="form-check">
-                                        <label class="form-check-label">
-                                          <input class="form-check-input" type="checkbox"> Remember me
-                                        </label>
-                                    </div>
-                                    <div class="reset-pwd">
-                                        <a href="#">Forgot Password ?</a>
-                                    </div>
-                                </div>
-                            </div>
-                            
-                            <button type="submit" class="mt-4 col-12 btn btn-default btn-lg submit-button" name="submit">Login</button>
-                        </form>
-                        <div class="d-flex justify-content-center sign-up mt-4">
-                            <p>Don't have an account? <a href="register.html">Sign Up</a></p>
-                        </div>
-
-                    </div>
                 </div>
             </div>
+        </div>
 
-        </div>       
+    </div>       
+        <footer       
+            class="navbar navbar-expand-lg navbar-dark bg-info text-right">
+
+                     The A-Team &copy; 2019
+                
+
+        </footer>
         
         
         
