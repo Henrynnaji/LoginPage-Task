@@ -2,7 +2,7 @@
 
     define('DBNAME', 'users');
     define('DBUSER', 'root');
-    define('DBPASS', 'pass');
+    define('DBPASS', 'oparaprosper081');
 
     try{
 
