@@ -1,10 +1,12 @@
 <?php
 // here we handle all data before it goes to the database
-class UserAuthent extends Database {
+class userAuthent extends database {
+
+
     
     public function userVal($mail, $passw) {
         //global variables form the index.php was collected here and we have to loop the array
-    // ?
+// ?
     //     $formAuth = [$mail, $passw];|
     // //we loop through it now
     // foreach ($formAuth as $loopedFormAuth) {
@@ -13,9 +15,9 @@ class UserAuthent extends Database {
 
     //     }
     // }
-
+    // require 'db_config/db_config.php';
      // '''''''''validation'''''
-    $this-> msg = "Incorrect password or username";
+     $this-> msg = "Incorrect password or username";
 
     //Lets point to the database 
     $loginDbClass  =  $this->Dbconnect(); 
@@ -28,7 +30,7 @@ class UserAuthent extends Database {
 
     if($ourStmt->rowCount()) {
         //if our databse was affected, we say
-            header('location: dashboard.html');
+            header('location: dashboard.php');
     }
     
     }
