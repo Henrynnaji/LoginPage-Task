@@ -1,3 +1,8 @@
+<?php
+    include ('db_config/database.php');
+    include ('authent.php');
+
+?>
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -24,7 +29,7 @@
           <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav">
               <li class="nav-item active">
-                <a class="nav-link" href="index.html" ><i class="fa fa-home"></i> Home <span class="sr-only"></span></a>
+                <a class="nav-link" href="index.php" ><i class="fa fa-home"></i> Home <span class="sr-only"></span></a>
               </li>
               <li class="nav-item">
                 <a class="nav-link" href="#"> <i class="fa fa-address-book"></i> Contact Us</a>
@@ -49,13 +54,31 @@
                         <h4>Welcome Back, Please Login
                             <br> To Your Account
                         </h4>
+
+
+                        <?php
+            $onSubmit = isset($_POST['submit']);
+
+            if($onSubmit) {
+                $indexAuth = new userAuthent;
+                $indexAuth->userVal($_POST['email'], $_POST['pass']);
+            }
+                ?>
+
                         
-                        <form action="/action_page.php">
+                        <form action="#" Method="POST">
                             <div class="form-group mt-5">
-                                <input type="email" class="form-control input-field" id="email" placeholder="Enter Email Address" required>
+
+                            <?php
+                                if (isset($indexAuth->msg)){?>
+                            <p style="color:red"><?php echo "*".$indexAuth->msg;  ?> </p>    
+                           <?php  }?>
+
+
+                                <input type="email" class="form-control input-field" id="email" name="email" placeholder="Enter Email Address" required>
                             </div>
                             <div class="form-group mt-4">
-                                <input type="password" class="form-control input-field" id="pwd" placeholder="Enter Password" required>
+                                <input type="password" class="form-control input-field" id="pwd" name="pass"  placeholder="Enter Password" required>
                             </div>
                             <div class="container mt-4">
                                 <div class="row d-flex justify-content-between">
@@ -70,10 +93,10 @@
                                 </div>
                             </div>
                             
-                            <button type="submit" class="mt-4 col-12 btn btn-default btn-lg submit-button">Login</button>
+                            <button type="submit" name="submit" class="mt-4 col-12 btn btn-default btn-lg submit-button">Login</button>
                         </form>
                         <div class="d-flex justify-content-center sign-up mt-4">
-                            <p>Don't have an account? <a href="register.html">Sign Up</a></p>
+                            <p>Don't have an account? <a href="register.php">Sign Up</a></p>
 
                         </div>
 
