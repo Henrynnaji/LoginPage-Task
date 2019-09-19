@@ -37,8 +37,9 @@ body {
 }
 
 .submit-button:hover {
-    background-color: #E67E22;
+    background-color: #17a2b8;
     color: #fff;
+    border: 1px solid #fff;
 }
 
 .reset-pwd a {
@@ -48,12 +49,12 @@ body {
 
 .reset-pwd a:hover {
     text-decoration: none;
-    color: #E67E22;
+    color: #17a2b8;
 }
 
 .sign-up a {
     text-decoration: none;
-    color: #E67E22;
+    color: #17a2b8;
 }
 
 
@@ -73,6 +74,7 @@ footer{
     background: #17a2b8;
     height: 100vh;
     padding-top: 157px;
+    overflow-x: hidden;
 }
 
 

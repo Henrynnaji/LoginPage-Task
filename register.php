@@ -101,7 +101,15 @@
                             </div>
                             <div class="form-group mt-4">
                                 <input type="password" class="form-control input-field" name="password" id="pwd" placeholder="Choose Password" required>
-                                <input type="checkbox" onclick="myPassword()"> Show Password
+                            </div>
+                            <div class="container mt-4">
+                                <div class="row">
+                                    <div class="form-check">
+                                        <label class="form-check-label">
+                                          <input class="form-check-input" type="checkbox" onclick="myPassword()"> Show Password
+                                        </label>
+                                    </div>
+                                </div>
                             </div>
                             
                             <button type="submit" class="mt-4 col-12 btn btn-default btn-lg submit-button" name="Submit">Register</button>
@@ -115,13 +123,12 @@
             </div>
 
         </div>   
-        <footer       
-        class="navbar navbar-expand-lg navbar-dark bg-info text-right">
+        <footer class="navbar navbar-expand-lg navbar-dark bg-info text-right">
 
                  The A-Team &copy; 2019
             
  
-    </footer>    
+        </footer>    
         
         
         
