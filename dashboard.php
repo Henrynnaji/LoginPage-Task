@@ -30,7 +30,7 @@
                     <div class="collapse navbar-collapse" id="navbarNav">
                         <ul class="navbar-nav">
                             <li class="nav-item active">
-                                <a class="nav-link" href="index.html" ><i class="fa fa-home"></i> Home <span class="sr-only"></span></a>
+                                <a class="nav-link" href="index.php" ><i class="fa fa-home"></i> Home <span class="sr-only"></span></a>
                             </li>
                             <li class="nav-item">
                                 <a class="nav-link" href="#"> <i class="fa fa-address-book"></i> Contact Us</a>

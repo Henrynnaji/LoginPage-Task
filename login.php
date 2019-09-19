@@ -1,8 +1,8 @@
 <?php
-  include ('jovial_Db_config/dataBase.php');
-  include ('login_authentication.php');
-?>
+    include ('db_config/database.php');
+    include ('authent.php');
 
+?>
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -29,7 +29,7 @@
           <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav">
               <li class="nav-item active">
-                <a class="nav-link" href="index.html" ><i class="fa fa-home"></i> Home <span class="sr-only"></span></a>
+                <a class="nav-link" href="index.php" ><i class="fa fa-home"></i> Home <span class="sr-only"></span></a>
               </li>
               <li class="nav-item">
                 <a class="nav-link" href="#"> <i class="fa fa-address-book"></i> Contact Us</a>
@@ -44,58 +44,70 @@
          </div>
       </nav>   
         
-      <div class="container">    
-        <div class="d-flex justify-content-center align-items-center parent">
-            <div class="row insideParent">
-                <div class=" h-100 d-none d-md-block col-md-6 px-0 form-img"></div>
-                <div class="h-100 col-md-6 right-side">
-                  <h4>Welcome Back, Please Login
-                    <br> To Your Account
-                  </h4>
-                    
-                  <?php
-                    $onSubmit = isset($_POST['submit']);
-                    if($onSubmit) {
-                        $indexAuth = new UserAuthent;
-                        $indexAuth->userVal($_POST['email'], $_POST['pass']);
-                    }
-                  ?>
-                  <form action="<?php echo $_SERVER['PHP_SELF'] ?>" Method="POST">
-                      <div class="form-group mt-5">
-                      <?php
-                          if (isset($indexAuth->msg)){?>
-                      <p style="color:red"><?php echo "*".$indexAuth->msg;  ?> </p>    
-                     <?php  }?>
-                      
-                          <input type="email" class="form-control input-field" id="email" name="email" placeholder="Enter Email Address" required>
-                      </div>
-                      <div class="form-group mt-4">
-                          <input type="password" class="form-control input-field" id="pwd" name="pass" placeholder="Enter Password" required>
-                      </div>
-                      <div class="container mt-4">
-                          <div class="row d-flex justify-content-between">
-                              <div class="form-check">
-                                  <label class="form-check-label">
-                                    <input class="form-check-input" type="checkbox"> Remember me
-                                  </label>
-                              </div>
-                              <div class="reset-pwd">
-                                  <a href="#">Forgot Password ?</a>
-                              </div>
-                          </div>
-                      </div>
-                      
-                      <button type="submit" class="mt-4 col-12 btn btn-default btn-lg submit-button" name="submit">Login</button>
-                  </form>
-                    <div class="d-flex justify-content-center sign-up mt-4">
-                        <p>Don't have an account? <a href="register.php">Sign Up</a></p>
+        <div class="container">
+            
+            <div class="d-flex justify-content-center align-items-center parent">
+                <div class="row insideParent">
+                    <div class=" h-100 d-none d-md-block col-md-6 px-0 form-img">
                     </div>
+                    <div class="h-100 col-md-6 right-side">
+                        <h4>Welcome Back, Please Login
+                            <br> To Your Account
+                        </h4>
 
+
+                        <?php
+            $onSubmit = isset($_POST['submit']);
+
+            if($onSubmit) {
+                $indexAuth = new userAuthent;
+                $indexAuth->userVal($_POST['email'], $_POST['pass']);
+            }
+                ?>
+
+                        
+                        <form action="#" Method="POST">
+                            <div class="form-group mt-5">
+
+                            <?php
+                                if (isset($indexAuth->msg)){?>
+                            <p style="color:red"><?php echo "*".$indexAuth->msg;  ?> </p>    
+                           <?php  }?>
+
+
+                                <input type="email" class="form-control input-field" id="email" name="email" placeholder="Enter Email Address" required>
+                            </div>
+                            <div class="form-group mt-4">
+                                <input type="password" class="form-control input-field" id="pwd" name="pass"  placeholder="Enter Password" required>
+                            </div>
+                            <div class="container mt-4">
+                                <div class="row d-flex justify-content-between">
+                                    <div class="form-check">
+                                        <label class="form-check-label">
+                                          <input class="form-check-input" type="checkbox"> Remember me
+                                        </label>
+                                    </div>
+                                    <div class="reset-pwd">
+                                        <a href="#">Forgot Password ?</a>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <button type="submit" name="submit" class="mt-4 col-12 btn btn-default btn-lg submit-button">Login</button>
+                        </form>
+                        <div class="d-flex justify-content-center sign-up mt-4">
+                            <p>Don't have an account? <a href="register.php">Sign Up</a></p>
+
+                        </div>
+
+                    </div>
                 </div>
             </div>
-        </div>
 
-    </div>       
+        </div>       
+            
+
+
         <footer       
             class="navbar navbar-expand-lg navbar-dark bg-info text-right">
 

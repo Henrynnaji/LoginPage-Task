@@ -1,25 +1,9 @@
 <?php
+// if($_SERVER['REQUEST_METHOD'] == 'POST'){
+    include ('db_config/database.php');
+    include ('regSan.php');
 
-if($_SERVER['REQUEST_METHOD'] == "POST" && isset($_POST['submit'])){
-  require 'registration_auth.php';
-   
-  $first_name   = $_POST["f-name"];
-  $last_name    = $_POST["l-name"];
-  $email        = $_POST["email"];
-  $password     = $_POST["password"];
-  
-//   $sql = "INSERT INTO client (`client_First_Name`, `client_Last_Name`, `client_Email`, `password`) VALUES ('$first_name', '$last_name', '$email', '$password')";
-
-//   $conn_db = $conn->prepare($sql);
-//   $exe = $conn_db->execute();
-// 
-    // if($exe){
-    //   header("Location: dashboard.html");
-    // }
-    $register = new Registration($first_name, $last_name, $email, $password);
-    $register-> store_details();
-
-}
+// } 
 ?>
 
 <!DOCTYPE html>
@@ -56,7 +40,7 @@ if($_SERVER['REQUEST_METHOD'] == "POST" && isset($_POST['submit'])){
                     <div class="collapse navbar-collapse" id="navbarNav">
                         <ul class="navbar-nav">
                             <li class="nav-item active">
-                                <a class="nav-link" href="index.html" ><i class="fa fa-home"></i> Home <span class="sr-only"></span></a>
+                                <a class="nav-link" href="index.php" ><i class="fa fa-home"></i> Home <span class="sr-only"></span></a>
                             </li>
                             <li class="nav-item">
                                 <a class="nav-link" href="#"> <i class="fa fa-address-book"></i> Contact Us</a>
@@ -70,6 +54,16 @@ if($_SERVER['REQUEST_METHOD'] == "POST" && isset($_POST['submit'])){
                         </ul>
                             </div>
          </nav>   
+
+         <?php
+            $regSubmit =  isset($_POST['Submit']);
+            if ($regSubmit){
+                $regAuth = new reg;
+                $regAuth->signup($_POST['f-name'], $_POST['l-name'], $_POST['email'], $_POST['password']);
+            }
+        ?>
+
+
         <div class="container">
             
             <div class="d-flex justify-content-center align-items-center parent">
@@ -80,14 +74,24 @@ if($_SERVER['REQUEST_METHOD'] == "POST" && isset($_POST['submit'])){
                         <h4>New Here...
                             <br> Sign Up Now
                         </h4>
+                        
+
+                        <?php
+                               
+                         
+                    if (isset($regAuth-> msg)) { ?> 
+                        <p style="color:red"> <?php echo "*".$regAuth->msg;  ?> </p>    
+                           <?php  }?>
                 
-                        <form action="<?php echo $_SERVER['PHP_SELF']?>" method="POST">
+                    
+
+                
+
+                        <form  method="POST">
                             <div class="row mt-5">
-                                
                                 <div class="col">
                                     <input type="text" class="form-control input-field" name="f-name" placeholder="First name" required>
                                 </div>
-                               
                                 <div class="col">
                                     <input type="text" class="form-control input-field" name="l-name" placeholder="Last name" required>
                                 </div>
@@ -97,10 +101,10 @@ if($_SERVER['REQUEST_METHOD'] == "POST" && isset($_POST['submit'])){
                             </div>
                             <div class="form-group mt-4">
                                 <input type="password" class="form-control input-field" name="password" id="pwd" placeholder="Choose Password" required>
-                                <input type="checkbox" onclick="myPassword()">Show Password
+                                <input type="checkbox" onclick="myPassword()"> Show Password
                             </div>
                             
-                            <button type="submit" name="submit" class="mt-4 col-12 btn btn-default btn-lg submit-button">Register</button>
+                            <button type="submit" class="mt-4 col-12 btn btn-default btn-lg submit-button" name="Submit">Register</button>
                         </form>
                         <div class="d-flex justify-content-center sign-up mt-4">
                             <p>Already have an account? <a href="login.php">Login</a></p>
